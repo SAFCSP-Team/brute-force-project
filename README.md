@@ -1,17 +1,17 @@
 # Brute Force Project
 
 
-## Objective
+### Objective
 
 In this project, our objective is to understand how to use brute force algorithm.
 
 
-## Problem
+### Problem
 
 
 Create `bruteForcePaths` to find all possible paths in a graph.
 
-## Implementation
+### Implementation
 
 * Create `bruteForcePaths` method that takes a `Graph` object and `startVertex` as parameters.
 * initializes an array called `path` to store the current path and a boolean array called `visited` to track which vertices have been visited and then calls the `generatePaths` method.
