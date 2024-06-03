@@ -9,7 +9,7 @@ In this project, our objective is to understand how to use brute force algorithm
 ### Problem
 
 
-Create `bruteForcePaths` to find all possible paths in a graph.
+Create `bruteforcePaths` method to find all possible paths in a graph.
 
 ### Implementation
 
