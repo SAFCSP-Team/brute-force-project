@@ -9,7 +9,7 @@ In this project, our objective is to understand how to use brute force algorithm
 ### Problem
 
 
-Create `bruteforcePaths` method to find all possible paths in a graph.
+Implement `bruteforcePaths` method to find all possible paths in a graph.
 
 ### Implementation
 
@@ -61,10 +61,12 @@ public class BruteForceGraph {
         }
     }
 
-    public static void bruteForcePaths(Graph graph, int startVertex) {
+    public static void bruteForcePaths() {
        boolean[] visited = new boolean[graph.vertices];
+
         /* write your code here */
     }
+
 
    public static void generatePaths(Graph graph, int vertices, boolean[] visited, int[] path, int pathIndex) {
 
