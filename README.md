@@ -14,14 +14,20 @@ Create `bruteforcePaths` method to find all possible paths in a graph.
 ### Implementation
 
 * Create `bruteForcePaths` method that takes a `Graph` object and `startVertex` as parameters.
-* initializes an array called `path` to store the current path and a boolean array called `visited` to track which vertices have been visited and then calls the `generatePaths` method.
-* Create `generatePaths` method it takes the `Graph` object, the `currentVertex`, the `path` array, the `visited` array, and the `pathIndex` in the path array as parameters.
-* marks the `currentVertex` as visited by setting `visited[currentVertex]` to true.
-* adds the `currentVertex` to the `path` array at the current `pathIndex` and **increments** `pathIndex`.
-* If the `pathIndex` is equal to `graph.vertices`, In that case, it calls the `printPath` method to print the `path`.
-* If the `pathIndex` is not equal to `graph.vertices` iterates over the edges in the graph and checks if there is an edge starting from the current vertex `edge.source == currentVertex` and if the destination vertex of the edge has not been visited `!visited[edge.destination]`. If these conditions are met, it recursively 
- calls `generatePaths` with the destination vertex as the new current vertex, and it continues exploring the graph.
-* and marks the current vertex as unvisited `visited[currentVertex] = false` to allow  it to be visited again in other paths.
+   *  initializes an array called `path` to store the current path and a boolean array called `visited`.
+   *  calls the `generatePaths` method.
+* In the `generatePaths` method:
+     *  marks the `vertices` as visited by setting `visited[vertices]` to true.
+     *  adds the `vertices` to the `path` array at the current `pathIndex` and **increments** `pathIndex`.
+
+the output
+  ```
+0 1 2 3 
+0 2 2 2 
+0 2 2 3 
+0 2 3 3 
+0 3 3 3 
+ ```
 
 ```java
 
@@ -55,12 +61,25 @@ public class BruteForceGraph {
         }
     }
 
-    public static void bruteForcePaths() {
-        /* Write your code here */
+    public static void bruteForcePaths(Graph graph, int startVertex) {
+       boolean[] visited = new boolean[graph.vertices];
+        /* write your code here */
     }
 
-   public static void generatePaths() {
-     /* Write your code here */
+   public static void generatePaths(Graph graph, int vertices, boolean[] visited, int[] path, int pathIndex) {
+
+     /* write your code here */
+
+  if (pathIndex == graph.vertices) {
+        printPath(path);
+    } else {
+        for (Edge edge : graph.edges) {
+            if ((edge.source == vertices &&!visited[edge.destination]) ||
+                    (edge.destination == vertices &&!visited[edge.source])) {
+                generatePaths(graph, edge.destination, visited, path, pathIndex);
+            }
+        }
+    }
 }
 
     public static void printPath(int[] path) {
