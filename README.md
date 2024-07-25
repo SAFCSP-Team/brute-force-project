@@ -18,7 +18,8 @@ Implement `bruteforcePaths` method to find all possible paths in a graph.
    *  calls the `generatePaths` method.
 * In the `generatePaths` method:
      *  marks the `vertices` as visited by setting `visited[vertices]` to true.
-     *  adds the `vertices` to the `path` array at the current `pathIndex` and **increments** `pathIndex`.
+     *  adds the `vertices` to the `path` array at the current `pathIndex`
+     *   **increments** `pathIndex`.
 
 the output
   ```
