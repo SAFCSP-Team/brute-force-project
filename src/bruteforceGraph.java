@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,22 +36,23 @@ public class BruteForceGraph {
     }
 
 
-   public static void generatePaths(Graph graph, int vertices, boolean[] visited, int[] path, int pathIndex) {
+   public static void generatePaths(Graph graph, int vertex, boolean[] visited, int[] path, int pathIndex) {
 
      /* write your code here */
 
-  if (pathIndex == graph.vertices) {
-        printPath(path);
-    } else {
-        for (Edge edge : graph.edges) {
-            if ((edge.source == vertices &&!visited[edge.destination]) ||
-                    (edge.destination == vertices &&!visited[edge.source])) {
-                generatePaths(graph, edge.destination, visited, path, pathIndex);
+       if (pathIndex == graph.vertices) {
+            printPath(path);
+        } else {
+            for (int i = 0; i < graph.vertices; i++) {
+                if (!visited[i]) {
+                    generatePaths(graph, i, visited, path, pathIndex);
+                }
             }
         }
-    }
-       visited[vertices] = false;
+
+        visited[vertex] = false;
 }
+
 
     public static void printPath(int[] path) {
         for (int vertex : path) {
@@ -73,3 +75,4 @@ public class BruteForceGraph {
         bruteForcePaths(graph, startVertex);
     }
 }
+
