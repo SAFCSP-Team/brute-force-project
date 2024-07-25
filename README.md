@@ -22,12 +22,13 @@ Implement `bruteforcePaths` method to find all possible paths in a graph.
      *   **increments** `pathIndex`.
 
 the output
-  ```
+```
 0 1 2 3 
-0 2 2 2 
-0 2 2 3 
-0 2 3 3 
-0 3 3 3 
+0 1 3 2 
+0 2 1 3 
+0 2 3 1 
+0 3 1 2 
+0 3 2 1
  ```
 
 ```java
@@ -69,22 +70,23 @@ public class BruteForceGraph {
     }
 
 
-   public static void generatePaths(Graph graph, int vertices, boolean[] visited, int[] path, int pathIndex) {
+   public static void generatePaths(Graph graph, int vertex, boolean[] visited, int[] path, int pathIndex) {
 
      /* write your code here */
 
-  if (pathIndex == graph.vertices) {
-        printPath(path);
-    } else {
-        for (Edge edge : graph.edges) {
-            if ((edge.source == vertices &&!visited[edge.destination]) ||
-                    (edge.destination == vertices &&!visited[edge.source])) {
-                generatePaths(graph, edge.destination, visited, path, pathIndex);
+       if (pathIndex == graph.vertices) {
+            printPath(path);
+        } else {
+            for (int i = 0; i < graph.vertices; i++) {
+                if (!visited[i]) {
+                    generatePaths(graph, i, visited, path, pathIndex);
+                }
             }
         }
-    }
-       visited[vertices] = false;
+
+        visited[vertex] = false;
 }
+
 
     public static void printPath(int[] path) {
         for (int vertex : path) {
