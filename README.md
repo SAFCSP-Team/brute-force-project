@@ -83,6 +83,7 @@ public class BruteForceGraph {
             }
         }
     }
+       visited[vertices] = false;
 }
 
     public static void printPath(int[] path) {
